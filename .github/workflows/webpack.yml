@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x]
     
     steps:
     - uses: actions/checkout@v3
@@ -26,3 +26,11 @@ jobs:
       run: |
         npm install
         npx webpack
+       
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v3.0.0
+      with:
+        # Artifact name
+        name: build # optional
+        # Destination path
+        path: /build # optional
